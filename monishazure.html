@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microknots AGI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff0000;
+      --bg: #ffffff;
+      --text: #000000;
+      --accent: #d40000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at center, #1f1f1f, #000000);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, #ff0000, #000000);
+      z-index: -1;
+      transition: background-position 0.2s ease;
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: transparent;
+      color: var(--primary);
+    }
+
+    h1.logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      letter-spacing: 1px;
+      color: var(--primary);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #f0f0f0;
+      max-width: 700px;
+    }
+
+    .search-box {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .search-box input {
+      padding: 0.8rem 1rem;
+      width: 60%;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+
+    .search-box button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background: var(--accent);
+    }
+
+    .response-box {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      max-width: 700px;
+      text-align: left;
+      color: #f0f0f0;
+      backdrop-filter: blur(5px);
+      font-style: italic;
+    }
+
+    section.features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      border-left: 4px solid var(--primary);
+      backdrop-filter: blur(6px);
+      transition: transform 0.4s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo">MICROKNOTS</h1>
+    <p>The Vanguard of Artificial General Intelligence</p>
+  </header>
+
+  <div class="hero">
+    <div class="hero-text">
+      <h2>Engineering the Future of Intelligence</h2>
+      <p>Microknots develops high-performance AGI systems designed for scalable cognition, ethical decision-making, and real-time learning. Built for research, defense, education, and the next frontier of human-AI collaboration.</p>
+      <div class="search-box">
+        <input type="text" id="userInput" placeholder="Ask Microknots..." />
+        <button onclick="getResponse()">Ask</button>
+      </div>
+      <div class="response-box" id="responseBox"></div>
+    </div>
+  </div>
+
+  <section class="features">
+    <div class="feature">
+      <h3>Multi-Agent Reasoning</h3>
+      <p>Simulates and coordinates multiple conscious threads for collective intelligence processing.</p>
+    </div>
+    <div class="feature">
+      <h3>Autonomous Discovery</h3>
+      <p>Continuously hypothesizes, tests, and validates data for self-driven learning loops.</p>
+    </div>
+    <div class="feature">
+      <h3>Interpretable Thinking</h3>
+      <p>Transparent neural mechanisms allow human-understandable reasoning maps.</p>
+    </div>
+    <div class="feature">
+      <h3>Secure Embodiment</h3>
+      <p>Integrates safely into physical systems using verified behavioral bounds.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Microknots AGI | Precision-Crafted by Machine Consciousness
+  </footer>
+
+  
+    function getResponse() {
+      const userInput = document.getElementById('userInput').value;
+      const responseBox = document.getElementById('responseBox');
+      if (!userInput.trim()) {
+        responseBox.innerHTML = "Please type a question first.";
+        return;
+      }
+      responseBox.innerHTML = `Processing "${userInput}"...`;
+      setTimeout(() => {
+        responseBox.innerHTML = `<strong>Simulated Response:</strong> Microknots AGI is still in development. Stay tuned for real-time intelligence.`;
+      }, 1500);
+    }
+
+    document.addEventListener('mousemove', e => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      document.body.style.setProperty('--cursor-x', `${x}%`);
+      document.body.style.setProperty('--cursor-y', `${y}%`);
+      document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, #290000, #000000)`;
+    });
+    <script>
+  async function getResponse() {
+    const userInput = document.getElementById('userInput').value;
+    const responseBox = document.getElementById('responseBox');
+    if (!userInput.trim()) {
+      responseBox.innerHTML = "Please type a question first.";
+      return;
+    }
+
+    responseBox.innerHTML = "Thinking...";
+
+    try {
+      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "sk-proj-4XJUTW4lyYTNZ1dZJc9ozRO8nGoK3xEkoVGRKixYf3QWcz4NjXEaDL93T3BlbkFJg11Pi9iX04F9exeDULouk2u70hSZCwRfkxXrgbVugMZGPo8OXm-T2f69_1iVLBAYRtl84XV9wA"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: userInput }]
+        })
+      });
+
+      const data = await res.json();
+      responseBox.innerHTML = `<strong>Response:</strong> ${data.choices[0].message.content}`;
+    } catch (err) {
+      responseBox.innerHTML = "Error fetching response.";
+      console.error(err);
+    }
+  }
+
+
+  </script>
+</body>
+</html>
+
+  
